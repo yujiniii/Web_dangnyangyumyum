@@ -1,0 +1,15 @@
+<%- include('../includes/head.ejs', { title: 'Login' }) %>
+  <link rel="stylesheet" href="/styles/forms.css">
+  <link rel="stylesheet" href="/styles/auth.css">
+</head>
+
+<body>
+  <%- include('../includes/header.ejs') %>
+  <main id="sale-main">
+    <ol id="posts-list">
+        <% for(const order of orders){ %>
+            <%- include('../includes/order-item', {order:order})%>
+        <% } %>
+    </ol>
+</main>
+</body>

@@ -1,0 +1,20 @@
+<article class="post-item">
+    <h2> <%=post.title%> </h2>
+    <p class="post-item-author">By <%=post.author_name%> </p>
+    <p> <%=post.summary%></p>
+    <div class="post-actions">
+        <form action="/posts/<%=post.id%>/delete" method="post">
+            <select id="status" name="status">
+                <option value="A">입금완료</option>
+                <option value="B">발주</option>
+                <option value="C">배송중</option>
+                <option value="D">배송완료</option>
+            </select>            
+            <button class="btn btn-alt">   
+            Delete Post </button>
+
+        </form>
+            <a href="/posts/<%=post.id%>/edit">Edit Post</a>
+            <a class="btn" href="/posts/<%=post.id%>">View Post</a>
+    </div>
+</article>

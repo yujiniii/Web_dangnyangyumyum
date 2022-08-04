@@ -1,0 +1,28 @@
+<%- include('../includes/head.ejs', { title: '상품 조회' }) %>
+  <link rel="stylesheet" href="/styles/forms.css">
+  <link rel="stylesheet" href="/styles/auth.css">
+</head>
+
+<body>
+  <%- include('../includes/header.ejs') %>
+  <main id="sale-items">
+    <form action="/fortype" method="post">
+        <div class="form-control">
+            <label for="type">분   류 : </label>
+            <select id="type" name="type">
+                <option value="all">전체</option>
+                <option value="공용">공용</option>
+                <option value="강아지용">강아지용</option>
+                <option value="고양이용">고양이용</option>
+            </select>
+          </div>
+          <button class="btn">조 회</button>
+    </form>
+    <ol id="posts-list">
+        <% for(const item of items){ %>
+            <%- include('../includes/sale-item-for-admin', {item:item})%>
+        <% } %>
+    </ol>
+    <a href="/newItem" class="floating"><img src="https://user-images.githubusercontent.com/50348197/180922072-a1db9f7b-4d88-444b-b973-97a52f46a416.png" alt="새상품등록" width="50rem"></a>
+  </main>
+</body>

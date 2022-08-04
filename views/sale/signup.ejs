@@ -1,0 +1,44 @@
+<%- include('../includes/head.ejs', { title: 'Signup' }) %>
+  <link rel="stylesheet" href="/styles/forms.css">
+  <link rel="stylesheet" href="/styles/auth.css">
+</head>
+
+<body>
+  <%- include('../includes/header.ejs') %>
+  <main id="signup">
+    <h1>회원가입</h1>
+    <% if(inputData.hasError) {%>
+    <p id="input-error"><%=inputData.message%></p>
+    <% } %>
+    <form action="/signup" method="POST">
+      <div class="form-control">
+        <label for="id">아이디</label>
+        <input type="text" id="id" value="<%=inputData.id%>" name="id" required>
+      </div>
+      
+      <div class="form-control">
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" value="<%=inputData.password%>" name="password" required>
+      </div>
+      <div class="form-control">
+        <label for="confirm-email">비밀번호 확인</label>
+        <input type="password" id="confirm-password" value="<%=inputData.confirmPassword%>" name="confirmPassword" required>
+      </div>
+      <div class="form-control">
+        <label for="adress">전화번호</label>
+        <input type="text" id="phone" value="<%=inputData.phone%>" name="phone" required>
+      </div>
+      <div class="form-control">
+        <label for="adress">주소</label>
+        <input type="text" id="address" value="<%=inputData.address%>" name="address" required>
+      </div>
+      <!-- 반려동물 유/무 가입 경로 등은 나중에 추가 예정 -->
+      <button class="btn">가입하기</button>
+    </form>
+    <div id="auth-alternative">
+      <a class="btn btn-alt" href="/login">로그인하기</a>
+    </div>
+  </main>
+</body>
+
+</html>

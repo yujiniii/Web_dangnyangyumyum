@@ -1,0 +1,39 @@
+<header id="main-header">
+    <nav>
+      <ul>
+
+      <% if (locals.isAdmin) { %>
+        <!-- ADMIN PAGE -->
+        <li><a href="/salesManagement">판매관리</a></li>
+        <li><a href="/orderManagement">주문관리</a></li>
+        <a href="/welcomeAdmin"><img src="https://user-images.githubusercontent.com/50348197/180725380-f7588baa-7eb0-4707-b0fa-1f6d81a2b01c.png" alt="logo"></a>
+        <li><a href="/cs">고객문의</a></li>
+        <% if (locals.isAuth) { %>
+          <li>
+            <form action="/logout" method="POST">
+              <button>로그아웃</button>
+            </form>
+          </li>
+          <% }  %>
+      <% } else { %>
+        <!-- SALE PAGE -->
+        <li><a href="/forDog">강아지 용품</a></li>
+        <li><a href="/forCat">고양이 용품</a></li>
+        <a href="/"><img src="https://user-images.githubusercontent.com/50348197/180725380-f7588baa-7eb0-4707-b0fa-1f6d81a2b01c.png" alt="logo"></a>
+        <% if (!locals.isAuth) { %>
+         <li><a href="/signup">회원가입</a></li>
+         <li><a href="/login">로그인</a></li>
+        <% } else { %>
+          <li><a href="/profile">마이페이지</a></li>
+          <li>
+            <form action="/logout" method="POST">
+              <button>로그아웃</button>
+            </form>
+          </li>
+        <% } %>
+      <% } %>
+  
+       
+      </ul>
+    </nav>
+  </header>

@@ -1,0 +1,12 @@
+<article class="admin-sale-item">
+    <h2> <%=item.name%> </h2>
+    <p class="post-item-author">금액 : <%=item.price%> </p>
+    <p> 설명 : <%=item.detail%> </p>
+    <div class="post-actions">
+        <form action="/salesManagement/<%=item._id%>/delete" method="post">
+                <button class="btn btn-alt">   
+                상품삭제 </button>
+        </form>
+            <a class="btn" href="/salesManagement/<%=item._id%>/edit">상품수정</a>
+    </div>
+</article>
