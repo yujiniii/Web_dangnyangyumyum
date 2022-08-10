@@ -15,4 +15,13 @@ router.get('/forCat', async function(req, res, next) {
   res.render('sale/main',{items:catList})
 });
 
+router.get('/:id/detail', async function(req, res, next) {
+  const thatItem = await db.getDb().collection('items').findOne({_id: new ObjectId(req.params.id)});
+  res.render('sale/item-detail',{item:thatItem})
+});
+
+router.post('/:id/detail', async function(req, res, next) {
+  const thatItem = await db.getDb().collection('items').findOne({_id: new ObjectId(req.params.id)});
+  res.render('sale/item-detail',{item:thatItem})
+});
 module.exports = router;
