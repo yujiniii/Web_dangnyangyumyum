@@ -28,7 +28,7 @@ router.get('/salesManagement', async function(req,res,next){
 
 router.get('/salesManagement/:id/edit', async function(req,res){
     const thatItem = await db.getDb().collection('items').findOne({_id:new ObjectId(req.params.id)})
-    res.render('admin/new-item',{item : thatItem});
+    res.render('admin/update-item',{item : thatItem});
 });
 
 router.post('/salesManagement/:id/edit', async function(req,res){
@@ -40,8 +40,8 @@ router.post('/salesManagement/:id/edit', async function(req,res){
         const type = req.file.mimetype.split('/')[1];
         if (type !== 'jpeg' && type !== 'jpg' && type !== 'png') {
             console.log('message: "Unsupported file type"');
-            path = req.file.path;
         }
+        path = req.file.path;
     }
     const aa = {
         name : req.body.name,
@@ -81,7 +81,7 @@ router.get('/orderManagement', async function(req,res,next){
 router.get('/newItem', function(req,res,next){
     const empty = {
         name : '',
-        price:'',
+        price:'3000',
         detail:''
     }
     res.render('admin/new-item',{item:empty});
@@ -89,25 +89,29 @@ router.get('/newItem', function(req,res,next){
 
 router.post('/newItem' , upload.single('image'), async function(req,res,next){
     let path; 
-    //console.log("req.file : ",img)
+    console.log("req.file : ",req.file)
 
     if (typeof req.file === 'undefined') {
         console.log('message: "undefined image file(no req.file)"');
-        path = ''
+        path = '';
     } else {
         const type = req.file.mimetype.split('/')[1];
         if (type !== 'jpeg' && type !== 'jpg' && type !== 'png') {
             console.log('message: "Unsupported file type"');
+            path = '';
         }
+        path = req.file.path;
     }
-
+    console.log('path : ', path);
     const newItem = {
         name : req.body.name,
         price : req.body.price,
         detail : req.body.detail,
         type : req.body.type,
-        image : req.file.path
-    }
+        image : path
+    };
+
+    console.log(newItem);
 
     await db.getDb().collection('items').insertOne(newItem);
     res.redirect('/salesManagement')
