@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../includes/head', { title: '상품 수정' }) %>
+  <link rel="stylesheet" href="/styles/forms.css">
+  <link rel="stylesheet" href="/styles/auth.css">
+</head>
+
+<body>
+  <%- include('../includes/header') %>
+  <main>
+    <h1>상품 수정하기</h1>
+    <form action="/salesManagement/<%=item._id%>/edit" method="post" enctype="multipart/form-data">
+    <div class="form-control">
+      <label for="title">이   름 : </label>
+      <input type="text" id="name" name="name" value='<%=item.name%>' required>
+    </div>
+    <div class="form-control">
+      <label for="code">금   액 : </label>
+      <input type="text" id="price" name="price" value='<%=item.price%>' required maxlength="255">
+    </div>
+
+    <div class="form-control">
+      <label for="detail">설   명 : </label>
+      <input type="text" id="detail" name="detail" value='<%=item.detail%>' required>
+    </div>
+    <div class="form-control">
+      <label for="type">분   류 : </label>
+      <select id="type" name="type">
+        <option value="<%=item.type%>">기존 값 : <%=item.type%></option>
+        <option value="공용">공용</option>
+        <option value="강아지용">강아지용</option>
+        <option value="고양이용">고양이용</option>
+      </select>
+    </div>
+    <div class="form-control">
+      <label for="image">이미지 첨부</label>
+      <input type="file" name="image" id="image">
+    </div>
+    <button class="btn">저 장</button>
+  </form>
+</main>
+</body>
+
+</html>

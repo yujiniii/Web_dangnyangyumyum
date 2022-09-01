@@ -29,12 +29,12 @@ main {
 
 .floating{  position: fixed; bottom: 10%; right: 10%;}
 a {
-  color:rgb(70, 0, 128);
+  color:rgb(112, 173, 71);
 }
 
 a:hover,
 a:active {
-  color: rgb(113, 0, 128);
+  color: rgb(80, 126, 50);
 }
 
 #main-header {
@@ -75,33 +75,39 @@ a:active {
 #main-header a:active,
 #main-header button:hover,
 #main-header button:active {
-  color: rgb(209, 88, 233);
+  color: rgb(252, 179, 48);
 }
 
 .btn {
   font: inherit;
   text-decoration: none;
   cursor: pointer;
-  background-color: rgb(70, 0, 128);
-  border: 1px solid rgb(70, 0, 128);
+  background-color: rgb(112, 173, 71);
+  border: 1px solid rgb(112, 173, 71);
   color: white;
-  padding: 0.5rem 1.5rem;
+  padding: 0.3rem 1rem;
   border-radius: 4px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 
 .btn:hover,
 .btn:active {
-  background-color: rgb(57, 1, 102);
-  border-color: rgb(57, 1, 102);
+  background-color: rgb(80, 126, 50);
+  border-color: rgb(80, 126, 50);
 }
 
 .btn.btn-alt {
   background-color: transparent;
   border: none;
-  color:rgb(70, 0, 128);
+  color:rgb(252, 179, 48);
 }
 
 .btn.btn-alt:hover,
 .btn.btn-alt:active {
-  background-color: rgb(231, 212, 246);
+  background-color: rgb(252, 243, 224);
+}
+
+#itemImage{
+  float: left;
 }

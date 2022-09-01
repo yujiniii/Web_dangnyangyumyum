@@ -21,7 +21,10 @@ router.get('/:id/detail', async function(req, res, next) {
 });
 
 router.post('/:id/detail', async function(req, res, next) {
+  req.session.items = {
+    item
+  }
   const thatItem = await db.getDb().collection('items').findOne({_id: new ObjectId(req.params.id)});
-  res.render('sale/item-detail',{item:thatItem})
+  res.render('salcccce/item-detail',{item:thatItem})
 });
 module.exports = router;

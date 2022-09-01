@@ -1,14 +1,17 @@
 <%- include('../includes/head.ejs', { title: 'WELCOME' }) %>
+<link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/auth.css">
 </head>
 <body>
   <%- include('../includes/header.ejs') %>
   <main>
     <h1><%=item.name%></h1>
-    <img src="/<%=item.image%>" alt="" width="200px">
-    <p><%=item.price%> 원 / 개</p>
+    <img id='itemImage' src="/<%=item.image%>" alt="" width="200px">
+    
     <p><%=item.detail%></p>
+    <p><%=item.price%> 원 / 개</p>
     <form method="post" action="/<%=item._id%>/detail">
-      <p>개수 선택 : </p>
+      <label>개수 :  
       <select>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -16,7 +19,8 @@
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
-      <button class="btn btn-alt">장바구니 담기</button>
+      <button class="btn">장바구니 담기</button>
+    </label>
 </form>
   </main>
 </body>
